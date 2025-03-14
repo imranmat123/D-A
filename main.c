@@ -31,9 +31,60 @@ int fact(int n){
     }
 }
 
+void ReverseAString(char* n){
+    if(*n == '\0'){
+        return;
+    }else{
+        ReverseAString(n +1);
+        printf("%c", *n);
+    }
+}
+
+int power(int base, int exponent){
+
+    if(exponent == 1 ){
+        return 1;
+    } else{
+        return base * power(base, exponent -1);
+    }
+}
+
+
+int SumDigits(int n){
+    if(n % 10 <= 0){
+        return n;
+    }else{
+        int a = n % 10;
+        return a + SumDigits(n / 10);
+    }
+}
+
+int GCD(int a, int b){
+    if(b == 0){
+        return a;
+    }else{
+        GCD(b,a%b);
+    }
+}
+
+void pal(char* a, char* b){
+
+    if(a >= b){
+        printf("it is a pal");
+        return;
+    }else if(*a != *b){
+        printf("not a pal");
+        return;
+    }else{
+        pal(&a[+1], &b[-1]);
+    }
+}
 
 int main() {
-    printf("%d",fact(5));
+
+    char a[] = "racecar";
+    pal(a,&a[6]);
+
     return 0;
 }
 
